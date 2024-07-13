@@ -1,30 +1,32 @@
-# React + TypeScript + Vite
+## Python LangChainの自作LLMchainを、Next.js・ReactのチャットAIアプリにしたい！【NLUX】 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[**→　Zennの記事本文はこちら**](https://zenn.dev/vel/articles/daaf85d203b258). 
 
-Currently, two official plugins are available:
+--- 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### セットアップ
 
-## Expanding the ESLint configuration
+バックエンドとフロントエンドのセットアップは, 別々のターミナルで行ってください. 
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+#### バックエンド
 
-- Configure the top-level `parserOptions` property like this:
+LLMは高速安価な[**Groq**](https://groq.com)のAPIを用いて呼び出しています. [**→ API Keyの設定**](https://console.groq.com/keys)が必要です. 
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+```
+$ cd backend
+$ pip install -r requirements.txt
+$ export GROQ_API_KEY=<your-api-key-here>
+$ python server.py
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+ブラウザで [**`http://127.0.0.1:8083/chat/playground/`**](http://127.0.0.1:8083/chat/playground/) を開くと, 動作確認できます. 
+
+#### フロントエンド
+
+```
+$ cd frontend
+$ npm install
+$ npm run dev
+```
+
+ブラウザで [**`http://localhost:5173`**](http://localhost:5173) を開くと, 動作確認できます. 

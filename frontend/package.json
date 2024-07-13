@@ -10,6 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@nlux/langchain-react": "^2.14.0",
+    "@nlux/react": "^2.14.0",
+    "@nlux/themes": "^2.14.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
